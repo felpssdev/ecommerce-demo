@@ -1,83 +1,5 @@
 export const sneakersData = [
   {
-    "id": "e2e03258-cab3-4644-80c5-a5e1d312c93d",
-    "brand": "Nike",
-    "colorway": "Baroque Brown/Baroque Brown-Baroque Brown",
-    "estimatedMarketValue": 118,
-    "gender": "men",
-    "image": {
-      "360": [],
-      "original": "https://images.stockx.com/images/Nike-Air-Force-1-Low-Supreme-Baroque-Brown.jpg?fit=fill&bg=FFFFFF&w=500&h=500&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1677481787",
-      "small": "https://images.stockx.com/images/Nike-Air-Force-1-Low-Supreme-Baroque-Brown.jpg?fit=fill&bg=FFFFFF&w=375&h=375&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1677481787",
-      "thumbnail": "https://images.stockx.com/images/Nike-Air-Force-1-Low-Supreme-Baroque-Brown.jpg?fit=fill&bg=FFFFFF&w=200&h=200&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1677481787"
-    },
-    "links": {
-      "stockX": "https://stockx.com/nike-air-force-1-low-supreme-baroque-brown",
-      "goat": "",
-      "flightClub": "",
-      "stadiumGoods": ""
-    },
-    "name": "Nike Air Force 1 Low Supreme Baroque Brown",
-    "releaseDate": "2023-12-01",
-    "releaseYear": "2023",
-    "retailPrice": 118,
-    "silhouette": "Nike Air Force 1 Low",
-    "sku": "CU9225-200",
-    "story": ""
-  },
-  {
-    "id": "6c7835f0-1bae-4f1f-bebb-7f8cb0216523",
-    "brand": "Nike",
-    "colorway": "Grey/Photo Blue",
-    "estimatedMarketValue": 130,
-    "gender": "men",
-    "image": {
-      "360": [],
-      "original": "https://images.stockx.com/images/Nike-Air-Max-95-Ultra-Grey-Photo-Blue.jpg?fit=fill&bg=FFFFFF&w=500&h=500&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1684348897",
-      "small": "https://images.stockx.com/images/Nike-Air-Max-95-Ultra-Grey-Photo-Blue.jpg?fit=fill&bg=FFFFFF&w=375&h=375&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1684348897",
-      "thumbnail": "https://images.stockx.com/images/Nike-Air-Max-95-Ultra-Grey-Photo-Blue.jpg?fit=fill&bg=FFFFFF&w=200&h=200&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1684348897"
-    },
-    "links": {
-      "stockX": "https://stockx.com/nike-air-max-95-ultra-grey-photo-blue",
-      "goat": "",
-      "flightClub": "",
-      "stadiumGoods": ""
-    },
-    "name": "Nike Air Max 95 Ultra Grey Photo Blue",
-    "releaseDate": "2023-10-01",
-    "releaseYear": "2023",
-    "retailPrice": 170,
-    "silhouette": "Nike Air Max 95 Ultra",
-    "sku": "FN7802-002",
-    "story": ""
-  },
-  {
-    "id": "d0f48024-0dbc-42f6-a1f4-8d23ca413033",
-    "brand": "adidas",
-    "colorway": "White/Black-White",
-    "estimatedMarketValue": 140,
-    "gender": "men",
-    "image": {
-      "360": [],
-      "original": "https://images.stockx.com/images/adidas-Supermodified-Korn.jpg?fit=fill&bg=FFFFFF&w=500&h=500&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1687584884",
-      "small": "https://images.stockx.com/images/adidas-Supermodified-Korn.jpg?fit=fill&bg=FFFFFF&w=375&h=375&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1687584884",
-      "thumbnail": "https://images.stockx.com/images/adidas-Supermodified-Korn.jpg?fit=fill&bg=FFFFFF&w=200&h=200&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1687584884"
-    },
-    "links": {
-      "stockX": "https://stockx.com/adidas-supermodified-korn",
-      "goat": "",
-      "flightClub": "",
-      "stadiumGoods": ""
-    },
-    "name": "adidas Supermodified Korn",
-    "releaseDate": "2023-10-01",
-    "releaseYear": "2023",
-    "retailPrice": 140,
-    "silhouette": "adidas Supermodified",
-    "sku": "IG0793",
-    "story": ""
-  },
-  {
     "id": "4f705671-380f-4369-9acd-7fc36aad0f9d",
     "brand": "Jordan",
     "colorway": "Black/True Red",
@@ -180,32 +102,6 @@ export const sneakersData = [
     "silhouette": "Air Jordan 5",
     "sku": "DZ4131-600",
     "story": "The 2023 edition of the Air Jordan 5 Retro ‘Burgundy’ brings back a 2006 colorway from Jordan Brand’s Lifestyle Series. The legacy silhouette utilizes a burgundy suede upper, accented with contrast stitching and breathable translucent netting on the quarter panel. Embroidered Jumpman branding decorates the heel overlay and tongue, treated with a sliver reflective finish for added visibility during low-light conditions. A color-matched polyurethane features speckled shark-tooth detailing and a visible Air-sole unit nestled in the heel. Underfoot, a translucent herringbone-traction outsole delivers reliable grip."
-  },
-  {
-    "id": "96d40210-8d16-4942-bee7-7ca46c2434a0",
-    "brand": "Nike",
-    "colorway": "Pure Platinum/White-Black-Sport Red-Summit White",
-    "estimatedMarketValue": 160,
-    "gender": "men",
-    "image": {
-      "360": [],
-      "original": "https://images.stockx.com/images/Nike-Air-Max-1-Urawa-2023.jpg?fit=fill&bg=FFFFFF&w=500&h=500&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1684260928",
-      "small": "https://images.stockx.com/images/Nike-Air-Max-1-Urawa-2023.jpg?fit=fill&bg=FFFFFF&w=375&h=375&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1684260928",
-      "thumbnail": "https://images.stockx.com/images/Nike-Air-Max-1-Urawa-2023.jpg?fit=fill&bg=FFFFFF&w=200&h=200&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1684260928"
-    },
-    "links": {
-      "stockX": "https://stockx.com/nike-air-max-1-urawa-2023",
-      "goat": "",
-      "flightClub": "",
-      "stadiumGoods": ""
-    },
-    "name": "Nike Air Max 1 Urawa (2023)",
-    "releaseDate": "2023-09-01",
-    "releaseYear": "2023",
-    "retailPrice": 160,
-    "silhouette": "Nike Air Max 1",
-    "sku": "FD9081-001",
-    "story": ""
   },
   {
     "id": "497f879e-bcb8-46bc-8c30-400df7f8607d",
@@ -1251,7 +1147,7 @@ export const sneakersData = [
     "id": "cbca00d8-02ba-4a6d-ab68-505c0e2b5b0e",
     "brand": "Saucony",
     "colorway": "",
-    "estimatedMarketValue": 0,
+    "estimatedMarketValue": 189,
     "gender": "men",
     "image": {
       "360": [],
