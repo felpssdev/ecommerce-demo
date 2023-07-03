@@ -6,7 +6,7 @@ import { ShoppingCart, Menu } from 'lucide-react'
 const Header = () => {
   const [showNavbar, setShowNavbar] = useState(false)
   return (
-    <div className='w-full h-20 py-6 px-10 flex justify-between items-center'>
+    <div className='w-full h-20 py-6 flex justify-between items-center'>
       <div onClick={() => setShowNavbar(prev => !prev)} className='flex md:hidden bg-gray-200 rounded-full items-center h-9 w-9 justify-center'>
         <Menu />
       </div>
