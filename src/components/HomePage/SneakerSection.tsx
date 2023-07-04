@@ -1,5 +1,5 @@
 import React from 'react'
-import { sneakersData } from '../data/sneakersData'
+import { sneakersData } from '../../data/sneakersData'
 import SneakerCard from './SneakerCard'
 
 const SneakerSection = () => {

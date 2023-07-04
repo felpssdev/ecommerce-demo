@@ -1,8 +1,8 @@
-import BrandsSection from "./components/BrandsSection";
-import Header from "./components/Header";
-import PromoSection from "./components/PromoSection";
-import SearchBar from "./components/SearchBar";
-import SneakerSection from "./components/SneakerSection";
+import BrandsSection from "@/components/HomePage/BrandsSection";
+import Header from "@/components/HomePage/Header";
+import PromoSection from "@/components/HomePage/PromoSection";
+import SearchBar from "@/components/HomePage/SearchBar";
+import SneakerSection from "@/components/HomePage/SneakerSection";
 
 export default function Home() {
   return (

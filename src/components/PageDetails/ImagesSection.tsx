@@ -1,4 +1,4 @@
-import { SneakerType } from '@/app/types/SneakerType'
+import { SneakerType } from '@/types/SneakerType'
 import React from 'react'
 
 interface ImagesSectionProps {

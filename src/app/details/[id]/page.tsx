@@ -2,13 +2,13 @@
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { ArrowLeft, MessageCircle, MoreVertical, ShoppingBag, ThumbsDown, ThumbsUp } from 'lucide-react'
-import { sneakersData } from '@/app/data/sneakersData'
-import useFavorite from '@/app/hooks/useFavorite'
-import { SneakerType } from '@/app/types/SneakerType'
-import ImagesSection from '@/app/components/PageDetails/ImagesSection'
-import StatisticsSection from '@/app/components/PageDetails/StatisticsSection'
-import SizesSection from '@/app/components/PageDetails/SizesSection'
-import SneakerDetailsLoader from '@/app/loaders/SneakerDetailsLoader'
+import { sneakersData } from '@/data/sneakersData'
+import useFavorite from '@/hooks/useFavorite'
+import { SneakerType } from '@/types/SneakerType'
+import ImagesSection from '@/components/PageDetails/ImagesSection'
+import StatisticsSection from '@/components/PageDetails/StatisticsSection'
+import SizesSection from '@/components/PageDetails/SizesSection'
+import SneakerDetailsLoader from '@/loaders/SneakerDetailsLoader'
 
 interface DetailsProps {
   params: {
@@ -34,9 +34,25 @@ const Details = ({ params }: DetailsProps) => {
       setData(sneaker[0])
 
       setIsLoading(false)
-    }, 500)
+    }, 1000)
     return () => clearTimeout(waitSneaker)
   }, [])
+
+  const addToCart = ({ name, id, estimatedMarketValue, image }: SneakerType) => {
+    const oldCartItems: string | SneakerType[] = localStorage.getItem('cart') || []
+
+    if (typeof oldCartItems === 'string') {
+      const parsed = JSON.parse(oldCartItems)
+
+      parsed.push({ name, id, estimatedMarketValue, image })
+
+      localStorage.setItem('cart', JSON.stringify(parsed))
+    } else {
+      oldCartItems.push({ name, id, estimatedMarketValue, image })
+
+      localStorage.setItem('cart', JSON.stringify(oldCartItems))
+    }
+  }
 
   if (isLoading) return <SneakerDetailsLoader />
 
@@ -74,7 +90,7 @@ const Details = ({ params }: DetailsProps) => {
             <MessageCircle />
           </div>
           <div className='border-2 border-green-500 text-green-500 w-44 h-12 rounded-full flex items-center justify-center'>
-            <div className='flex gap-2'>
+            <div onClick={() => addToCart(data)} className='flex gap-2 cursor-pointer'>
               <ShoppingBag />
               <p className='font-bold'>Add to Cart</p>
             </div>

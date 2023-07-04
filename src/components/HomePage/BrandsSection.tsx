@@ -1,5 +1,5 @@
 import React from 'react'
-import { brandsData } from '@/app/data/brandsData'
+import { brandsData } from '@/data/brandsData'
 import Image from 'next/image'
 
 const BrandsSection = () => {

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { SneakerType } from "../types/SneakerType"
+import { SneakerType } from "@/types/SneakerType"
 
 const useFavorite = () => {
   const [isFavorite, setIsFavorite] = useState(false)

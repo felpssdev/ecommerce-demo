@@ -2,9 +2,9 @@
 import { ThumbsDown, ThumbsUp } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
-import SneakerCardLoader from '../loaders/SneakerCardLoader';
-import useFavorite from '../hooks/useFavorite';
-import { SneakerType } from '@/app/types/SneakerType'
+import SneakerCardLoader from '@/loaders/SneakerCardLoader';
+import useFavorite from '../../hooks/useFavorite';
+import { SneakerType } from '@/types/SneakerType'
 
 interface SneakerCardProps {
   sneaker: {

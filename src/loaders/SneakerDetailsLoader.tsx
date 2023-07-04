@@ -24,7 +24,7 @@ const SneakerDetailsLoader = () => {
           <div className='w-24 h-4 bg-gray-300 rounded animate-pulse'></div>
           <div className='w-24 h-4 bg-gray-300 rounded animate-pulse'></div>
         </div>
-        <div className='flex justify-between mt-44 items-center'>
+        <div className='flex justify-between mt-36 items-center'>
           <div className='border-2 box-border border-gray-300 w-12 h-12 rounded-full'></div>
           <div className='border-2 box-border border-gray-300 w-44 h-12 rounded-full'>
           </div>
