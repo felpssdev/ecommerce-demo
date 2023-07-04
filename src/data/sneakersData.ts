@@ -286,32 +286,6 @@ export const sneakersData = [
     "story": "The 2023 edition of the Air Jordan 1 Retro Low OG ‘Black Toe’ brings back a coveted original colorway initially released in 1985. The low-profile silhouette utilizes an all-leather upper, featuring a white base with forefoot and heel overlays in black and Varsity Red, respectively. Branding elements include a black signature Swoosh, a woven Nike tongue tag, and a black Wings logo stamped on the red leather heel tab. The shoe rests on a durable cupsole that pairs crisp white sidewalls with a grippy red rubber outsole."
   },
   {
-    "id": "cfdc23db-5d20-40aa-b4b0-57ae78961c5f",
-    "brand": "Nike",
-    "colorway": "Sail/Rugged Orange-Light Orewood Brown-Sundial",
-    "estimatedMarketValue": 160,
-    "gender": "women",
-    "image": {
-      "360": [],
-      "original": "https://images.stockx.com/images/Nike-Air-Max-1-Rugged-Orange-Womens.jpg?fit=fill&bg=FFFFFF&w=500&h=500&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1682582122",
-      "small": "https://images.stockx.com/images/Nike-Air-Max-1-Rugged-Orange-Womens.jpg?fit=fill&bg=FFFFFF&w=375&h=375&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1682582122",
-      "thumbnail": "https://images.stockx.com/images/Nike-Air-Max-1-Rugged-Orange-Womens.jpg?fit=fill&bg=FFFFFF&w=200&h=200&fm=webp&auto=compress&trim=color&q=90&dpr=2&updated_at=1682582122"
-    },
-    "links": {
-      "stockX": "https://stockx.com/nike-air-max-1-rugged-orange-womens",
-      "goat": "",
-      "flightClub": "",
-      "stadiumGoods": ""
-    },
-    "name": "Nike Air Max 1 Rugged Orange (Women's)",
-    "releaseDate": "2023-07-28",
-    "releaseYear": "2023",
-    "retailPrice": 160,
-    "silhouette": "Nike Air Max 1",
-    "sku": "FD2370-100",
-    "story": ""
-  },
-  {
     "id": "1beec88a-1be2-492d-a8a1-05f648be2e7d",
     "brand": "Jordan",
     "colorway": "Black/Fierce Pink/White",

@@ -5,12 +5,13 @@ interface NavbarProps {
   show: boolean;
 }
 
+// Não utilizada
+
 const Navbar = ({ show }: NavbarProps) => {
   return (
-    <div className={`gap-6 text-gray-500 absolute left-[-1000px] md:flex ${show && 'left-10'}`}>
-      <Link href="/">Home</Link>
-      <Link href="/products">Products</Link>
-      <Link href="#brands">Brands</Link>
+    <div className='fixed text-white bottom-10 flex w-[330px] h-24 z-10 rounded-full bg-slate-950 justify-between'>
+      <Link href="/"></Link>
+      <Link href="/cart">Products</Link>
     </div>
   )
 }

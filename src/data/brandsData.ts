@@ -15,7 +15,7 @@ const brandData = sneakersData
 
 export const brandsData = [
   {
-    name: 'Adidas',
+    name: 'adidas',
     image: Adidas
   },
   {
@@ -23,7 +23,7 @@ export const brandsData = [
     image: Nike
   },
   {
-    name: 'Air Jordan',
+    name: 'Jordan',
     image: Airjordan
   },
   {
@@ -39,7 +39,7 @@ export const brandsData = [
     image: Puma
   },
   {
-    name: 'Rebook',
+    name: 'Reebok',
     image: Rebook
   },
   {

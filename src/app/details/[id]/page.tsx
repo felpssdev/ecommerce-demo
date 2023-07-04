@@ -17,7 +17,7 @@ interface DetailsProps {
 }
 
 const Details = ({ params }: DetailsProps) => {
-  const [data, setData] = useState<SneakerType>({ name: '', id: '', estimatedMarketValue: 0, image: { thumbnail: '' } })
+  const [data, setData] = useState<SneakerType>({ name: '', id: '', estimatedMarketValue: 0, image: { thumbnail: '' }, quantity: 0 })
   const [isLoading, setIsLoading] = useState(true)
   const { isFavorite, setIsFavorite, addToFavorites } = useFavorite()
 
@@ -31,7 +31,15 @@ const Details = ({ params }: DetailsProps) => {
 
     const waitSneaker = setTimeout(() => {
       const sneaker = sneakersData.filter((sneaker) => sneaker.id === params.id)
-      setData(sneaker[0])
+      setData({
+        name: sneaker[0].name,
+        id: sneaker[0].id,
+        estimatedMarketValue: sneaker[0].estimatedMarketValue,
+        image: {
+          thumbnail: sneaker[0].image.thumbnail
+        },
+        quantity: 0
+      })
 
       setIsLoading(false)
     }, 1000)
@@ -42,13 +50,21 @@ const Details = ({ params }: DetailsProps) => {
     const oldCartItems: string | SneakerType[] = localStorage.getItem('cart') || []
 
     if (typeof oldCartItems === 'string') {
-      const parsed = JSON.parse(oldCartItems)
+      let parsed = JSON.parse(oldCartItems)
 
-      parsed.push({ name, id, estimatedMarketValue, image })
+      if (parsed.some((snk: SneakerType) => snk.id === id)) {
+        const getSneaker = parsed.filter((snk: SneakerType) => snk.id === id)
+        getSneaker[0].quantity = getSneaker[0].quantity + 1
+
+        parsed = parsed.filter((snk: SneakerType) => snk.id !== id)
+        parsed.push(getSneaker[0])
+      } else {
+        parsed.push({ name, id, estimatedMarketValue, image, quantity: 1 })
+      }
 
       localStorage.setItem('cart', JSON.stringify(parsed))
     } else {
-      oldCartItems.push({ name, id, estimatedMarketValue, image })
+      oldCartItems.push({ name, id, estimatedMarketValue, image, quantity: 1 })
 
       localStorage.setItem('cart', JSON.stringify(oldCartItems))
     }
