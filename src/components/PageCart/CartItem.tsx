@@ -37,11 +37,11 @@ const CartItem = ({ sneaker, subTotal, setSubtotal }: CartItemProps) => {
         <div className='flex justify-between items-center'>
           <p className='font-bold text-xl'>{`$ ${sneaker.estimatedMarketValue.toFixed(2)}`}</p>
           <div className='flex bg-gray-200 rounded-full p-1 w-24 justify-between'>
-            <div onClick={minusTotal} className='bg-white rounded-full text-sm text-green-500'>
+            <div onClick={minusTotal} className='bg-white rounded-full text-sm text-green-500 cursor-pointer'>
               <Minus />
             </div>
             <div className='font-bold'>{quantity}</div>
-            <div onClick={plusTotal} className='bg-green-500 rounded-full text-sm text-white'>
+            <div onClick={plusTotal} className='bg-green-500 rounded-full text-sm text-white cursor-pointer'>
               <Plus />
             </div>
           </div>

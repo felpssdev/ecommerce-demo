@@ -60,7 +60,7 @@ const Cart = () => {
         </div>
         <div className='flex justify-between p-2'>
           <p>Delivery fee</p>
-          <p className='text-base'>$ 0.00</p>
+          <p className='text-base'>{`$ ${(data.length + 50).toFixed(2)}`}</p>
         </div>
         <div className='flex justify-between p-2'>
           <p>Discount</p>
@@ -69,9 +69,9 @@ const Cart = () => {
       </div>
       <div className='text-lg mt-4 font-bold p-2 flex justify-between'>
         <p>Total</p>
-        <p className='text-2xl'>{counpon.toUpperCase() === 'FELPS' ? `$ ${(subTotal - 200).toFixed(2)}` : `$ ${subTotal.toFixed(2)}`}</p>
+        <p className='text-2xl'>{counpon.toUpperCase() === 'FELPS' ? `$ ${(subTotal - 200 + data.length + 50).toFixed(2)}` : `$ ${(subTotal + data.length + 50).toFixed(2)}`}</p>
       </div>
-      <button className='p-2 mt-20 w-full bg-green-500 rounded-full text-white font-bold'>Checkout</button>
+      <button className='p-2 mt-16 w-full bg-green-500 rounded-full text-white font-bold'>Checkout</button>
     </div>
   )
 }
