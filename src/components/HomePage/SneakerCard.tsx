@@ -1,7 +1,7 @@
 'use client'
 import { ThumbsDown, ThumbsUp } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, memo } from 'react'
 import SneakerCardLoader from '@/loaders/SneakerCardLoader';
 import useFavorite from '../../hooks/useFavorite';
 import { SneakerType } from '@/types/SneakerType'
@@ -17,7 +17,7 @@ interface SneakerCardProps {
   }
 }
 
-const SneakerCard = ({ sneaker }: SneakerCardProps) => {
+const SneakerCard = memo(function SneakerCardComponent({ sneaker }: SneakerCardProps) {
   const [isLoading, setIsLoading] = useState(true)
   const { addToFavorites, isFavorite, setIsFavorite } = useFavorite()
   const router = useRouter()
@@ -32,7 +32,7 @@ const SneakerCard = ({ sneaker }: SneakerCardProps) => {
 
     const loadSneakers = setTimeout(() => {
       setIsLoading(false)
-    }, 1000)
+    }, 200)
 
     return () => clearTimeout(loadSneakers)
 
@@ -54,6 +54,6 @@ const SneakerCard = ({ sneaker }: SneakerCardProps) => {
       </div>
     </div>
   )
-}
+})
 
 export default SneakerCard

@@ -1,10 +1,10 @@
 import { useState } from "react"
-import { SneakerType } from "@/types/SneakerType"
+import { SneakerType, SneakerTypeNoQuantity } from "@/types/SneakerType"
 
 const useFavorite = () => {
   const [isFavorite, setIsFavorite] = useState(false)
 
-  const addToFavorites = ({ name, id, estimatedMarketValue, image }: SneakerType) => {
+  const addToFavorites = ({ name, id, estimatedMarketValue, image }: SneakerTypeNoQuantity) => {
     if (!isFavorite) {
       setIsFavorite(true)
       const oldFavorites = (localStorage.getItem('favorite-sneakers'))

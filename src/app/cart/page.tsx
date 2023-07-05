@@ -1,5 +1,6 @@
 'use client'
 import CartItem from '@/components/PageCart/CartItem'
+import MoreMenu from '@/components/PageCart/MoreMenu'
 import { SneakerType } from '@/types/SneakerType'
 import { ArrowLeft, CheckCircle2, MoreVertical, XCircle } from 'lucide-react'
 import Link from 'next/link'
@@ -7,8 +8,9 @@ import React, { useEffect, useState } from 'react'
 
 const Cart = () => {
   const [data, setData] = useState<SneakerType[]>([])
-  const [counpon, setCounpon] = useState('')
-  const [subTotal, setSubtotal] = useState(0)
+  const [counpon, setCounpon] = useState<string>('')
+  const [subTotal, setSubtotal] = useState<number>(0)
+  const [showModal, setShowModal] = useState<boolean>(false)
 
   useEffect(() => {
     const getCartItems: string | SneakerType[] = localStorage.getItem('cart') || []
@@ -23,6 +25,12 @@ const Cart = () => {
     }
   }, [])
 
+  useEffect(() => {
+    const getSubtotal = data.reduce((acc: number, obj: SneakerType) => acc + obj.estimatedMarketValue * obj.quantity, 0);
+
+    setSubtotal(getSubtotal)
+  }, [data])
+
   return (
     <div className='w-full px-4 py-4 overflow-y-scroll scrollbar-hide'>
       <div className='w-full flex justify-between items-center'>
@@ -32,9 +40,10 @@ const Cart = () => {
           </div>
         </Link>
         <h1 className='font-bold text-lg'>Cart</h1>
-        <div className='h-10 w-10 bg-gray-200 flex items-center justify-center rounded-full'>
+        <div onClick={() => setShowModal(true)} className='cursor-pointer h-10 w-10 bg-gray-200 flex items-center justify-center rounded-full'>
           <MoreVertical />
         </div>
+        <MoreMenu setData={setData} setShowModal={setShowModal} show={showModal} />
       </div>
       <div className='mt-6 flex flex-col h-96 gap-4 overflow-y-scroll scrollbar-hide'>
         {data
