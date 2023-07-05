@@ -47,7 +47,7 @@ const Cart = () => {
       </div>
       <div className='mt-6 flex flex-col h-96 gap-4 overflow-y-scroll scrollbar-hide'>
         {data
-          .map((sneaker) => <CartItem subTotal={subTotal} setSubtotal={setSubtotal} key={sneaker.id} sneaker={sneaker} />)}
+          .map((sneaker) => <CartItem setData={setData} subTotal={subTotal} setSubtotal={setSubtotal} key={sneaker.id} sneaker={sneaker} />)}
       </div>
       <p className='font-semibold text-zinc-400 mt-2'>Have a coupon code?</p>
       <div className='relative'>
@@ -69,7 +69,7 @@ const Cart = () => {
         </div>
         <div className='flex justify-between p-2'>
           <p>Delivery fee</p>
-          <p className='text-base'>{`$ ${(data.length + 50).toFixed(2)}`}</p>
+          <p className='text-base'>{data.length > 0 ? `$ ${(data.length + 50).toFixed(2)}` : '$ 0.00'}</p>
         </div>
         <div className='flex justify-between p-2'>
           <p>Discount</p>
@@ -78,7 +78,7 @@ const Cart = () => {
       </div>
       <div className='text-lg mt-4 font-bold p-2 flex justify-between'>
         <p>Total</p>
-        <p className='text-2xl'>{counpon.toUpperCase() === 'FELPS' ? `$ ${(subTotal - 200 + data.length + 50).toFixed(2)}` : `$ ${(subTotal + data.length + 50).toFixed(2)}`}</p>
+        {data.length > 0 ? <p className='text-2xl'>{counpon.toUpperCase() === 'FELPS' ? `$ ${(subTotal - 200 + data.length + 50).toFixed(2)}` : `$ ${(subTotal + data.length + 50).toFixed(2)}`}</p> : <p>$ 0.00</p>}
       </div>
       <button className='p-2 mt-16 w-full bg-green-500 rounded-full text-white font-bold'>Checkout</button>
     </div>
