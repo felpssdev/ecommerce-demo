@@ -1,7 +1,7 @@
 'use client'
 import { SneakerType } from '@/types/SneakerType'
-import { Minus, Plus, Trash } from 'lucide-react';
-import React, { Dispatch, SetStateAction, useEffect, useState, useRef } from 'react'
+import { Minus, Plus, Trash } from 'lucide-react'
+import React, { Dispatch, SetStateAction, useEffect, useState, memo } from 'react'
 
 interface CartItemProps {
   sneaker: SneakerType;
@@ -10,7 +10,7 @@ interface CartItemProps {
   setData: Dispatch<SetStateAction<SneakerType[]>>;
 }
 
-const CartItem = ({ sneaker, subTotal, setSubtotal, setData }: CartItemProps) => {
+const CartItem = memo(function CartItemComponent({ sneaker, subTotal, setSubtotal, setData }: CartItemProps) {
   const [quantity, setQuantity] = useState<number>(1)
   const [showRemove, setShowRemove] = useState(false)
 
@@ -68,6 +68,6 @@ const CartItem = ({ sneaker, subTotal, setSubtotal, setData }: CartItemProps) =>
       </div>
     </div>
   )
-}
+})
 
 export default CartItem
