@@ -1,6 +1,7 @@
 'use client'
 import { SneakerType } from '@/types/SneakerType'
 import { Minus, Plus, Trash } from 'lucide-react'
+import Image from 'next/image';
 import React, { Dispatch, SetStateAction, useEffect, useState, memo } from 'react'
 
 interface CartItemProps {
@@ -49,7 +50,7 @@ const CartItem = memo(function CartItemComponent({ sneaker, subTotal, setSubtota
         <Trash />
       </div>
       <div className='bg-gray-200 h-28 w-28 rounded-xl p-2'>
-        <img onClick={() => setShowRemove(prev => !prev)} src={sneaker.image.thumbnail} className='cursor-pointer' />
+        <Image width={112} height={112} alt={sneaker.name} onClick={() => setShowRemove(prev => !prev)} src={sneaker.image.thumbnail} className='cursor-pointer' />
       </div>
       <div className='p-2 flex flex-col justify-between w-60'>
         <p className='font-semibold text-zinc-400'>{sneaker.name}</p>

@@ -5,6 +5,7 @@ import React, { useEffect, useState, memo } from 'react'
 import SneakerCardLoader from '@/loaders/SneakerCardLoader';
 import useFavorite from '../../hooks/useFavorite';
 import { SneakerType } from '@/types/SneakerType'
+import Image from 'next/image';
 
 interface SneakerCardProps {
   sneaker: {
@@ -41,9 +42,9 @@ const SneakerCard = memo(function SneakerCardComponent({ sneaker }: SneakerCardP
   if (isLoading) return <SneakerCardLoader />
 
   return (
-    <div className='cursor-pointer h-fit w-90 flex flex-col items-center justify-center rounded-xl'>
+    <div className='cursor-pointer h-fit flex flex-col items-center justify-center rounded-xl'>
       <div className='relative w-full h-fit rounded-xl bg-gray-200 flex items-center justify-center'>
-        <img onClick={() => router.push(`/details/${sneaker.id}`)} src={sneaker.image.thumbnail} alt={sneaker.name} />
+        <Image width={300} height={300} onClick={() => router.push(`/details/${sneaker.id}`)} src={sneaker.image.thumbnail} alt={sneaker.name} />
         <div onClick={() => addToFavorites(sneaker)} className='absolute cursor-pointer bg-white top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full'>
           {isFavorite ? <ThumbsUp /> : <ThumbsDown />}
         </div>

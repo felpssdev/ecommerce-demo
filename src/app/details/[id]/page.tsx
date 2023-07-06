@@ -9,6 +9,7 @@ import ImagesSection from '@/components/PageDetails/ImagesSection'
 import StatisticsSection from '@/components/PageDetails/StatisticsSection'
 import SizesSection from '@/components/PageDetails/SizesSection'
 import SneakerDetailsLoader from '@/loaders/SneakerDetailsLoader'
+import Image from 'next/image'
 
 interface DetailsProps {
   params: {
@@ -82,7 +83,7 @@ const Details = ({ params }: DetailsProps) => {
           <p className='font-bold'>Sneaker Detail</p>
           <MoreVertical />
         </div>
-        <img src={data.image.thumbnail} />
+        <Image width={400} height={400} src={data.image.thumbnail} alt={data.name} />
       </div>
       <ImagesSection data={data} />
       <div className='w-full flex justify-between mt-2 px-2'>

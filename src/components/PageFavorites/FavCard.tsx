@@ -1,6 +1,7 @@
 'use client'
 import { SneakerTypeNoQuantity } from '@/types/SneakerType'
 import { ArrowRight, Trash } from 'lucide-react'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import React, { Dispatch, SetStateAction, useState } from 'react'
 
@@ -30,7 +31,7 @@ const FavCard = ({ sneaker, setData }: FavCardProps) => {
         <Trash onClick={handleRemoveFromFavs} />
       </div>
       <div className='bg-gray-200 h-28 w-28 rounded-xl p-2'>
-        <img onClick={() => setShowRemove(prev => !prev)} src={sneaker.image.thumbnail} className='cursor-pointer' />
+        <Image width={112} height={112} alt={sneaker.name} onClick={() => setShowRemove(prev => !prev)} src={sneaker.image.thumbnail} className='cursor-pointer' />
       </div>
       <div className='p-2 flex flex-col justify-between w-60'>
         <p className='font-semibold text-zinc-400'>{sneaker.name}</p>
