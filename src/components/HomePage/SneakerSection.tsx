@@ -26,7 +26,7 @@ const SneakerSection = () => {
         </div>
         <span onClick={clearFilters} className='text-green-500 font-bold cursor-pointer'>see all</span>
       </div>
-      <main className='grid grid-cols-1 gap-10 overflow-y-scroll scrollbar-hide md:grid-cols-3 pb-10'>
+      <main className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5  gap-10 overflow-y-scroll scrollbar-hide pb-10'>
         {sneakersData
           .filter((sneaker) => sneaker.brand.includes(currentBrand))
           .filter((sneaker) => sneaker.name.toLowerCase().includes(currentName))
