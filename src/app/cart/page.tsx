@@ -32,7 +32,7 @@ const Cart = () => {
   }, [data])
 
   return (
-    <div className='w-full px-4 py-4 overflow-y-scroll scrollbar-hide'>
+    <div className='w-full px-4 py-4 overflow-y-scroll scrollbar-hide flex flex-col 2xl:mx-auto 2xl:w-[550px]'>
       <div className='w-full flex justify-between items-center'>
         <Link href='/'>
           <div className='h-10 w-10 bg-gray-200 flex items-center justify-center rounded-full'>
@@ -45,7 +45,7 @@ const Cart = () => {
         </div>
         <MoreMenu setData={setData} setShowModal={setShowModal} show={showModal} />
       </div>
-      <div className='mt-6 flex flex-col h-96 gap-4 overflow-y-scroll scrollbar-hide'>
+      <div className='mt-6 flex flex-col sm:self-center md:self-center lg:self-center xl:self-center 2xl:self-center sm:w-[330px] md:w-[330px] lg:w-[330px] xl:w-[330px] 2xl:w-[330px] h-96 xxs:h-64 xs:h-80 s:h-[390px] gap-4 overflow-y-scroll scrollbar-hide'>
         {data
           .map((sneaker) => <CartItem setData={setData} subTotal={subTotal} setSubtotal={setSubtotal} key={sneaker.id} sneaker={sneaker} />)}
       </div>
@@ -76,11 +76,11 @@ const Cart = () => {
           <p className={`font-bold ${counpon.toUpperCase() === 'FELPS' ? 'text-green-500' : 'text-red-500'} text-base`}>{counpon.toUpperCase() === 'FELPS' ? '- $ 200.00' : '- $ 0.00'}</p>
         </div>
       </div>
-      <div className='text-lg mt-4 font-bold p-2 flex justify-between'>
+      <div className='text-lg mt-4 s:mt-2 font-bold p-2 flex justify-between'>
         <p>Total</p>
         {data.length > 0 ? <p className='text-2xl'>{counpon.toUpperCase() === 'FELPS' ? `$ ${(subTotal - 200 + data.length + 50).toFixed(2)}` : `$ ${(subTotal + data.length + 50).toFixed(2)}`}</p> : <p>$ 0.00</p>}
       </div>
-      <button className='p-2 mt-16 w-full bg-green-500 rounded-full text-white font-bold'>Checkout</button>
+      <button className='p-2 mt-16 xxs:mt-8 xs:mt-10 s:mt-6 w-full 2xl:w-80 2xl:self-center 2xl:mt-10 bg-green-500 rounded-full text-white font-bold'>Checkout</button>
     </div>
   )
 }

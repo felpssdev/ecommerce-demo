@@ -45,7 +45,7 @@ const CartItem = memo(function CartItemComponent({ sneaker, subTotal, setSubtota
   }
 
   return (
-    <div className={showRemove ? 'flex scrollbar-hide min-h-[115px] translate-x-24 w-fit overflow-x-hidden self-end items-center justify-center transition duration-150 ease-linear' : 'flex scrollbar-hide translate-x-2 w-fit overflow-x-hidden self-end items-center justify-center min-h-[115px] transition-all duration-150'}>
+    <div className={showRemove ? 'flex scrollbar-hide min-h-[115px] translate-x-24 w-[425px] xs:w-[440px] s:w-[513px] overflow-x-hidden self-end justify-center transition duration-150 ease-linear' : 'flex scrollbar-hide translate-x-2 w-[425px] xs:w-[440px] s:w-[513px] overflow-x-hidden self-end justify-center min-h-[115px] transition-all duration-150'}>
       <div onClick={handleRemoveFromCart} className='cursor-pointer bg-gradient-to-r from-red-400 via-red-200 h-28 to-white w-24 flex items-center pl-3 justify-center text-red-700'>
         <Trash />
       </div>

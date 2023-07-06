@@ -74,7 +74,7 @@ const Details = ({ params }: DetailsProps) => {
   if (isLoading) return <SneakerDetailsLoader />
 
   return (
-    <div className='flex flex-col items-center px-4 py-4'>
+    <div className='flex flex-col items-center px-4 py-4 lg:mx-auto lg:w-[550px] xl:mx-auto xl:w-[550px] 2xl:mx-auto 2xl:w-[550px]'>
       <div className='bg-gray-200 h-fit rounded-3xl'>
         <div className='flex w-full justify-between p-4 items-center'>
           <Link href="/">
@@ -102,7 +102,7 @@ const Details = ({ params }: DetailsProps) => {
           <span className='text-green-500 font-bold'>size chart</span>
         </div>
         <SizesSection />
-        <div className='flex justify-between mt-6 items-center'>
+        <div className='flex gap-1 justify-between mt-6 items-center sm:self-center sm:w-[400px] md:self-center md:w-[400px] lg:self-center lg:w-[400px]'>
           <div className='border-2 border-green-500 text-green-500 w-12 h-12 rounded-full flex items-center justify-center'>
             <MessageCircle />
           </div>
