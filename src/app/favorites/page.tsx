@@ -20,7 +20,7 @@ const Favorites = () => {
   }, [])
 
   return (
-    <div className='w-full h-screen p-4 overflow-y-scroll scrollbar-hide flex flex-col'>
+    <div className='w-screen h-screen p-4 overflow-y-scroll scrollbar-hide flex flex-col items-center'>
       <div className='w-full flex justify-between items-center'>
         <Link href='/'>
           <div className='h-10 w-10 bg-gray-200 flex items-center justify-center rounded-full'>
@@ -32,7 +32,7 @@ const Favorites = () => {
           <MoreVertical />
         </div>
       </div>
-      <div className='flex flex-col gap-4 mt-6 h-[640px] overflow-y-scroll scrollbar-hide'>
+      <div className='flex flex-col w-full gap-4 mt-6 h-[560px] xs:h-[630px] s:h-[680px] overflow-y-scroll scrollbar-hide'>
         {data.map((snk: SneakerTypeNoQuantity) => <FavCard setData={setData} sneaker={snk} key={snk.id} />)}
       </div>
       <button onClick={() => router.push('/')} className='bg-green-500 mt-10 px-6 py-2 rounded-full text-white font-bold self-center'>Go shop</button>
