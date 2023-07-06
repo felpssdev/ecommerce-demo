@@ -45,7 +45,7 @@ const Cart = () => {
         </div>
         <MoreMenu setData={setData} setShowModal={setShowModal} show={showModal} />
       </div>
-      <div className='mt-6 flex flex-col sm:self-center md:self-center lg:self-center xl:self-center 2xl:self-center sm:w-[330px] md:w-[330px] lg:w-[330px] xl:w-[330px] 2xl:w-[330px] h-96 xxs:h-64 xs:h-80 s:h-[390px] gap-4 overflow-y-scroll scrollbar-hide'>
+      <div className='mt-6 flex flex-col sm:self-center md:self-center lg:self-center xl:self-center 2xl:self-center sm:w-[330px] md:w-[330px] lg:w-[330px] xl:w-[330px] 2xl:w-[330px] h-96 xxs:h-64 xs:h-80 s:h-[390px] sm:h-[500px] gap-4 overflow-y-scroll scrollbar-hide'>
         {data
           .map((sneaker) => <CartItem setData={setData} subTotal={subTotal} setSubtotal={setSubtotal} key={sneaker.id} sneaker={sneaker} />)}
       </div>

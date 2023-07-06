@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { ShoppingCart, Menu } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import Navbar from './Navbar'
 
 const Header = () => {
   const [cartItemsQtd, setCartItemsQtd] = useState(0)
@@ -31,6 +32,7 @@ const Header = () => {
           : null
         }
       </div>
+      {/* <Navbar show={true} /> */}
     </div>
   )
 }
