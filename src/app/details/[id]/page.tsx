@@ -10,6 +10,7 @@ import StatisticsSection from '@/components/PageDetails/StatisticsSection'
 import SizesSection from '@/components/PageDetails/SizesSection'
 import SneakerDetailsLoader from '@/loaders/SneakerDetailsLoader'
 import Image from 'next/image'
+import useCart from '@/hooks/useCart'
 
 interface DetailsProps {
   params: {
@@ -21,6 +22,7 @@ const Details = ({ params }: DetailsProps) => {
   const [data, setData] = useState<SneakerType>({ name: '', id: '', estimatedMarketValue: 0, image: { thumbnail: '' }, quantity: 0 })
   const [isLoading, setIsLoading] = useState(true)
   const { isFavorite, setIsFavorite, addToFavorites } = useFavorite()
+  const { addToCart } = useCart()
 
   useEffect(() => {
     const oldFavorites = localStorage.getItem('favorite-sneakers')
@@ -47,34 +49,10 @@ const Details = ({ params }: DetailsProps) => {
     return () => clearTimeout(waitSneaker)
   }, [])
 
-  const addToCart = ({ name, id, estimatedMarketValue, image }: SneakerType) => {
-    const oldCartItems: string | SneakerType[] = localStorage.getItem('cart') || []
-
-    if (typeof oldCartItems === 'string') {
-      let parsed = JSON.parse(oldCartItems)
-
-      if (parsed.some((snk: SneakerType) => snk.id === id)) {
-        const getSneaker = parsed.filter((snk: SneakerType) => snk.id === id)
-        getSneaker[0].quantity = getSneaker[0].quantity + 1
-
-        parsed = parsed.filter((snk: SneakerType) => snk.id !== id)
-        parsed.push(getSneaker[0])
-      } else {
-        parsed.push({ name, id, estimatedMarketValue, image, quantity: 1 })
-      }
-
-      localStorage.setItem('cart', JSON.stringify(parsed))
-    } else {
-      oldCartItems.push({ name, id, estimatedMarketValue, image, quantity: 1 })
-
-      localStorage.setItem('cart', JSON.stringify(oldCartItems))
-    }
-  }
-
   if (isLoading) return <SneakerDetailsLoader />
 
   return (
-    <div className='flex flex-col items-center px-4 py-4 lg:mx-auto lg:w-[550px] xl:mx-auto xl:w-[550px] 2xl:mx-auto 2xl:w-[550px]'>
+    <div className='flex flex-col items-center px-4 py-4 pb-32 lg:mx-auto lg:w-[550px] xl:mx-auto xl:w-[550px] 2xl:mx-auto 2xl:w-[550px]'>
       <div className='bg-gray-200 h-fit rounded-3xl'>
         <div className='flex w-full justify-between p-4 items-center'>
           <Link href="/">

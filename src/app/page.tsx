@@ -7,7 +7,7 @@ import { Providers } from "@/contexts/filtersContext";
 
 export default function Home() {
   return (
-    <main className="flex flex-col justify-center px-10 overflow-y-scroll scrollbar-hide">
+    <main className="flex flex-col justify-center px-10 overflow-y-scroll scrollbar-hide pb-24">
       <Header />
       <Providers>
         <SearchBar />

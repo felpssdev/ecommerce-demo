@@ -32,7 +32,7 @@ const Cart = () => {
   }, [data])
 
   return (
-    <div className='w-full px-4 py-4 overflow-y-scroll scrollbar-hide flex flex-col 2xl:mx-auto 2xl:w-[550px]'>
+    <div className='w-full px-4 py-4 pb-36 overflow-y-scroll scrollbar-hide flex flex-col 2xl:mx-auto 2xl:w-[550px]'>
       <div className='w-full flex justify-between items-center'>
         <Link href='/'>
           <div className='h-10 w-10 bg-gray-200 flex items-center justify-center rounded-full'>
