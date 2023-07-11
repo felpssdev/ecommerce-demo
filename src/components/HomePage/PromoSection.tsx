@@ -25,7 +25,7 @@ const PromoSection = () => {
         </div>
         <div className='pr-5 flex flex-col items-center'>
           <div className='flex flex-col'>
-            <h1 className='text-white font-bold'>Felps Coupoun</h1>
+            <h1 className='text-white font-bold'>FELPS Coupoun</h1>
             <h2 className='text-zinc-400 self-center'>$ 200 Off</h2>
           </div>
           <Link href="/cart">

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import User from '../../../public/user-default.png'
+import Navbar from '@/components/HomePage/Navbar'
 
 const Profile = () => {
   return (
@@ -19,6 +20,7 @@ const Profile = () => {
         <h1 className='font-bold text-3xl mt-4'>User</h1>
         <p className='font-semibold'>user@email.com</p>
       </div>
+      <Navbar show={true} />
     </div>
   )
 }

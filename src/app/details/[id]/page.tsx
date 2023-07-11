@@ -52,7 +52,7 @@ const Details = ({ params }: DetailsProps) => {
   if (isLoading) return <SneakerDetailsLoader />
 
   return (
-    <div className='flex flex-col items-center px-4 py-4 pb-32 lg:mx-auto lg:w-[550px] xl:mx-auto xl:w-[550px] 2xl:mx-auto 2xl:w-[550px]'>
+    <div className='flex flex-col items-center px-4 py-4 lg:mx-auto lg:w-[550px] xl:mx-auto xl:w-[550px] 2xl:mx-auto 2xl:w-[550px]'>
       <div className='bg-gray-200 h-fit rounded-3xl'>
         <div className='flex w-full justify-between p-4 items-center'>
           <Link href="/">
