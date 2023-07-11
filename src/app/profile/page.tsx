@@ -16,6 +16,8 @@ const Profile = () => {
           <MoreVertical />
         </div>
         <Image width={200} height={200} src={User} alt="Foto do Usuário" />
+        <h1 className='font-bold text-3xl mt-4'>User</h1>
+        <p className='font-semibold'>user@email.com</p>
       </div>
     </div>
   )
