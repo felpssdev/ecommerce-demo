@@ -2,7 +2,9 @@ import conn from "@/models/User";
 import connect from "@/utils/db";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
-import bcrypt from 'bcryptjs'
+import GoogleProvider from "next-auth/providers/google"
+import bcryptjs from 'bcryptjs'
+import mongoose from "mongoose";
 
 const handler = NextAuth({
   providers: [
@@ -12,11 +14,16 @@ const handler = NextAuth({
       async authorize(credentials) {
         await connect()
 
+        mongoose.connection.on('error', err => {
+          throw new Error(err)
+        })
+
         try {
-          const user = conn.models.User.findOne({ email: credentials.email })
+          const user = await conn.models.User.findOne({ email: credentials.email })
+          console.log(user);
 
           if (user) {
-            const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password)
+            const isPasswordCorrect = await bcryptjs.compare(credentials.password, user.password)
 
             if (isPasswordCorrect) {
               return user
@@ -30,6 +37,10 @@ const handler = NextAuth({
           throw new Error(error.message)
         }
       }
+    }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET
     })
   ],
   pages: {

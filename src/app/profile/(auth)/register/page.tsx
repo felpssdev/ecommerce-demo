@@ -13,8 +13,8 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const name = e.target[0].value
-    const email = e.target[1].value
+    const email = e.target[0].value
+    const name = e.target[1].value
     const password = e.target[2].value
 
     try {
