@@ -24,4 +24,7 @@ const userSchema = new Schema<IUser>({
   }
 }, { timestamps: true })
 
-export default mongoose.models.User || mongoose.model("User", userSchema)
+const conn = mongoose.createConnection(process.env.MONGO as string)
+conn.model('User', userSchema)
+
+export default conn

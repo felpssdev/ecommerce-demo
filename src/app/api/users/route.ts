@@ -1,12 +1,16 @@
-import connect from "@/utils/db"
 import { NextResponse } from "next/server"
-import User from "@/models/User"
+import conn from "@/models/User"
+import mongoose from "mongoose"
 
-export const GET = async (req) => {
+export const GET = async (_req: string) => {
   try {
-    await connect()
+    mongoose.createConnection(process.env.MONGO)
 
-    const users = await User.find()
+    mongoose.connection.on('error', err => {
+      console.error(err)
+    })
+
+    const users = await conn.models.User.find()
 
     return new NextResponse(JSON.stringify(users), { status: 200 })
 
