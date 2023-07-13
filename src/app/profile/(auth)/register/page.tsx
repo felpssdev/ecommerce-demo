@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 import User from '@/../public/user-default.png'
 import { Lock, Mail, UserIcon } from 'lucide-react'
 import Link from 'next/link'
@@ -10,12 +10,12 @@ const Register = () => {
   const [err, setErr] = useState(false)
   const router = useRouter()
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const email = e.target[0].value
-    const name = e.target[1].value
-    const password = e.target[2].value
+    const email = (e.target as any)[0].value
+    const name = (e.target as any)[1].value
+    const password = (e.target as any)[1].value
 
     try {
       const res = await fetch('/api/auth/register', {
@@ -53,17 +53,17 @@ const Register = () => {
         </div>
         <div className='w-full flex flex-col items-center justify-center mt-16'>
           <form onSubmit={handleSubmit} className='w-full flex flex-col gap-4 items-center justify-center'>
-            <div className='w-full self-center flex items-center justify-center relative'>
+            <div className='w-full self-center flex items-center justify-center relativen'>
               <input required type='email' placeholder='email' className='w-[75%] p-4 px-10 font-bold text-zinc-500 placeholder:text-zinc-400 rounded-full border-0 bg-zinc-200 py-2 shadow-md focus:ring-green-500' />
-              <Mail className='absolute left-12' />
+              <Mail className='absolute left-12 text-zinc-700' />
             </div>
             <div className='w-full self-center flex items-center justify-center relative'>
               <input required type='text' placeholder='username' className='w-[75%] p-4 px-9 font-bold text-zinc-500 placeholder:text-zinc-400 rounded-full border-0 bg-zinc-200 py-2 shadow-md focus:ring-green-500' />
-              <UserIcon className='absolute left-12' />
+              <UserIcon className='absolute left-12 text-zinc-700' />
             </div>
             <div className='w-full self-center flex items-center justify-center relative'>
               <input required type='password' placeholder='password' className='w-[75%] p-4 px-9 font-bold text-zinc-500 placeholder:text-zinc-400 rounded-full border-0 bg-zinc-200 py-2 shadow-md focus:ring-green-500' />
-              <Lock className='absolute left-12' />
+              <Lock className='absolute left-12 text-zinc-700' />
             </div>
             <button className='font-bold text-white px-3 py-2 rounded-full bg-green-500 mt-3' type='submit'>Register</button>
           </form>

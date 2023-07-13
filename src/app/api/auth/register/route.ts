@@ -4,7 +4,7 @@ import bcryptjs from 'bcryptjs'
 import mongoose from "mongoose"
 
 export const POST = async (req: string) => {
-  const response = await req.json()
+  const response = await JSON.parse(req)
   const { name, email, password } = response
 
   const hashedPassword = await bcryptjs.hash(password, 5)
@@ -16,7 +16,7 @@ export const POST = async (req: string) => {
   })
 
   try {
-    mongoose.createConnection(process.env.MONGO)
+    mongoose.createConnection(process.env.MONGO as string)
 
     mongoose.connection.on('error', err => {
       console.error(err)

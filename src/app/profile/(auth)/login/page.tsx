@@ -1,4 +1,5 @@
 'use client'
+
 import Image from 'next/image'
 import User from '@/../public/user-default.png'
 import Google from '@/../public/google-logo.png'
@@ -6,6 +7,7 @@ import { Lock, Mail } from 'lucide-react'
 import Link from 'next/link'
 import { signIn, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import { FormEvent } from 'react'
 
 const Login = () => {
   const { status } = useSession()
@@ -13,11 +15,11 @@ const Login = () => {
 
   if (status === 'loading') return <p>Hang on there...</p>
 
-  const handleLogin = async (e) => {
+  const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const email = e.target[0].value
-    const password = e.target[1].value
+    const email = (e.target as any)[0].value
+    const password = (e.target as any)[1].value
 
     signIn('credentials', { email, password })
   }
@@ -34,11 +36,11 @@ const Login = () => {
           <form onSubmit={handleLogin} className='w-full flex flex-col gap-4 items-center justify-center'>
             <div className='w-full self-center flex items-center justify-center relative'>
               <input required type='email' placeholder='email' className='w-[75%] p-4 px-10 font-bold text-zinc-500 placeholder:text-zinc-400 rounded-full border-0 bg-zinc-200 py-2 shadow-md focus:ring-green-500' />
-              <Mail className='absolute left-12' />
+              <Mail className='absolute left-12 text-zinc-600' />
             </div>
             <div className='w-full self-center flex items-center justify-center relative'>
               <input required type='password' placeholder='password' className='w-[75%] p-4 px-9 font-bold text-zinc-500 placeholder:text-zinc-400 rounded-full border-0 bg-zinc-200 py-2 shadow-md focus:ring-green-500' />
-              <Lock className='absolute left-12' />
+              <Lock className='absolute left-12 text-zinc-600' />
             </div>
             <button className='font-bold text-white px-5 py-2 rounded-full bg-green-500 mt-3' type='submit'>Login</button>
           </form>
