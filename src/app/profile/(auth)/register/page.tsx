@@ -65,7 +65,7 @@ const Register = () => {
               <input required type='password' placeholder='password' className='w-[75%] p-4 px-9 font-bold text-zinc-500 placeholder:text-zinc-400 rounded-full border-0 bg-zinc-200 py-2 shadow-md focus:ring-green-500' />
               <Lock className='absolute left-12' />
             </div>
-            <button className='font-bold text-white px-3 py-2 rounded-full bg-green-500 mt-5' type='submit'>Register</button>
+            <button className='font-bold text-white px-3 py-2 rounded-full bg-green-500 mt-3' type='submit'>Register</button>
           </form>
           <div className='space-x-2 text-sm mt-4 font-semibold text-center'>
             <span className='text-zinc-400'>Already have an account?</span>
