@@ -1,4 +1,4 @@
-import User from "@/models/User";
+import conn from "@/models/User";
 import connect from "@/utils/db";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -13,7 +13,7 @@ const handler = NextAuth({
         await connect()
 
         try {
-          const user = User.findOne({ email: credentials.email })
+          const user = conn.models.User.findOne({ email: credentials.email })
 
           if (user) {
             const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password)

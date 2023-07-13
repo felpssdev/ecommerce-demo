@@ -1,5 +1,4 @@
 import conn from "@/models/User"
-import connect from "@/utils/db"
 import { NextResponse } from "next/server"
 import bcryptjs from 'bcryptjs'
 import mongoose from "mongoose"
@@ -8,10 +7,12 @@ export const POST = async (req: string) => {
   const response = await req.json()
   const { name, email, password } = response
 
+  const hashedPassword = await bcryptjs.hash(password, 5)
+
   const newUser = new conn.models.User({
     name,
     email,
-    password
+    password: hashedPassword
   })
 
   try {
@@ -27,7 +28,7 @@ export const POST = async (req: string) => {
       status: 201
     })
   } catch (error) {
-    return new NextResponse(console.log(error.message), {
+    return new NextResponse("Something went wrong when creating User!", {
       status: 500
     })
   }
