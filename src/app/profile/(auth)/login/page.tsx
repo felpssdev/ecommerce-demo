@@ -3,15 +3,14 @@ import Image from 'next/image'
 import User from '@/../public/user-default.png'
 import { Lock, Mail } from 'lucide-react'
 import Link from 'next/link'
-import { signIn, signOut, useSession } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 
 const Login = () => {
-  const { data, status, } = useSession()
+  const { status } = useSession()
+  const router = useRouter()
 
   if (status === 'loading') return <p>Hang on there...</p>
-
-  console.log(status);
-  console.log(data);
 
   const handleLogin = async (e) => {
     e.preventDefault()
@@ -22,6 +21,7 @@ const Login = () => {
     signIn('credentials', { email, password })
   }
 
+  if (status === 'authenticated') router.push('/profile')
 
   return (
     <div className='w-screen h-screen p-4 flex flex-col items-centera justify-center'>
@@ -44,7 +44,6 @@ const Login = () => {
             </div>
             <button className='font-bold text-white px-5 py-2 rounded-full bg-green-500 mt-5' type='submit'>Login</button>
           </form>
-          <button onClick={signOut}>SIGN OUT</button>
           <div className='space-x-2 text-sm mt-4 font-semibold text-center'>
             <span className='text-zinc-400'>Doesn't have an account?</span>
             <Link href="/profile/register" className='text-green-500'>Sign-up!</Link>

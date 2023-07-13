@@ -1,5 +1,4 @@
 import conn from "@/models/User";
-import connect from "@/utils/db";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google"
@@ -12,7 +11,7 @@ const handler = NextAuth({
       id: 'credentials',
       name: 'Credentials',
       async authorize(credentials) {
-        await connect()
+        mongoose.createConnection(process.env.MONGO)
 
         mongoose.connection.on('error', err => {
           throw new Error(err)
