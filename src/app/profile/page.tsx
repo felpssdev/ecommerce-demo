@@ -3,15 +3,20 @@
 import { ArrowLeft, ArrowRightCircle, CreditCard, MoreVertical } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import User from '../../../public/user-default.png'
 import Navbar from '@/components/HomePage/Navbar'
 import { signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 
 const Profile = () => {
+  const [isLoading, setIsLoading] = useState(true)
   const { data, status } = useSession()
   const router = useRouter()
+
+  useEffect(() => {
+    status !== 'loading' && setIsLoading(false)
+  }, [status])
 
   const handleSignout = async () => {
     await signOut()
@@ -22,6 +27,8 @@ const Profile = () => {
   if (status === 'unauthenticated') {
     router.push('/profile/login')
   }
+
+  if (isLoading) return <p>Hang on there...</p>
 
   return (
     <div className='flex flex-col items-center px-4 py-4 pb-32 lg:mx-auto lg:w-[550px] xl:mx-auto xl:w-[550px] 2xl:mx-auto 2xl:w-[550px]'>
