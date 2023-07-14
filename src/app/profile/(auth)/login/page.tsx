@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import User from '@/../public/user-default.png'
 import Google from '@/../public/google-logo.png'
+import Github from '@/../public/github-logo.png'
 import { Lock, Mail } from 'lucide-react'
 import Link from 'next/link'
 import { signIn, useSession } from 'next-auth/react'
@@ -28,7 +29,7 @@ const Login = () => {
 
   return (
     <div className='w-screen h-screen p-4 flex flex-col items-centera justify-center'>
-      <div className='h-[50%] w-[85%] self-center flex flex-col items-center justify-center relative rounded-3xl shadow-xl'>
+      <div className='h-[60%] w-[85%] self-center flex flex-col items-center justify-center relative rounded-3xl shadow-xl'>
         <div className='absolute top-[-40px]'>
           <Image className='shadow-xl rounded-full' src={User} width={100} height={100} alt='User Image' />
         </div>
@@ -48,15 +49,22 @@ const Login = () => {
             <span className='text-zinc-400'>{"Don't have an account?"}</span>
             <Link href="/profile/register" className='text-green-500'>Sign-up!</Link>
           </div>
-          <div className="flex items-center mt-6">
+          <div className="flex items-center mt-2">
             <div className="flex-grow border border-t w-28 border-gray-300"></div>
             <span className="px-1 text-gray-500 font-bold">or</span>
             <div className="flex-grow border border-t w-28 border-gray-300"></div>
           </div>
 
-          <div className='border-2 cursor-pointer rounded w-60 py-2 bg-gray-200 text-zinc-500 font-bold flex items-center justify-center gap-2'>
-            <Image src={Google} width={20} height={20} alt='google logo' />
-            <span onClick={() => signIn('google')}>Continue with Google</span>
+          <div className='flex flex-col gap-2 mt-2'>
+            <div className='border-2 cursor-pointer rounded w-60 py-2 bg-gray-200 text-zinc-500 font-bold flex items-center justify-center gap-2'>
+              <Image src={Google} width={20} height={20} alt='google logo' />
+              <span onClick={() => signIn('google')}>Continue with Google</span>
+            </div>
+
+            <div className='border-2 cursor-pointer rounded w-60 py-2 bg-gray-200 text-zinc-500 font-bold flex items-center justify-center gap-2'>
+              <Image src={Github} width={20} height={20} alt='google logo' />
+              <span onClick={() => signIn('github')}>Continue with Github</span>
+            </div>
           </div>
         </div>
       </div>

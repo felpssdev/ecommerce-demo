@@ -1,6 +1,7 @@
 import conn from "@/models/User";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GithunProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google"
 import bcryptjs from 'bcryptjs'
 import mongoose from "mongoose";
@@ -39,6 +40,10 @@ const handler = NextAuth({
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET
+    }),
+    GithunProvider({
+      clientId: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET
     })
   ],
   pages: {

@@ -13,8 +13,6 @@ const Profile = () => {
   const { data, status } = useSession()
   const router = useRouter()
 
-  console.log(data)
-
   const handleSignout = async () => {
     await signOut()
   }
@@ -41,7 +39,7 @@ const Profile = () => {
       </div>
       <div className='flex justify-between items-center w-full font-bold mt-4 px-2'>
         <h2>Credit cards</h2>
-        <span onClick={() => router.push(`/${data?.user?._id}/new-card`)} className='text-green-500 cursor-pointer'>New card</span>
+        <span className='text-green-500 cursor-pointer'>New card</span>
       </div>
       <div className='w-full h-64 mt-2 overflow-y-scroll scrollbar-hide'>
         <div className='flex gap-4 w-full py-4 border-b-2 items-center'>
