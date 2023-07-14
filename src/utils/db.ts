@@ -5,7 +5,7 @@ const connect = async () => {
     await mongoose.connect(process.env.MONGO as string, {
       serverSelectionTimeoutMS: 5000
     })
-  } catch (error) {
+  } catch (error: unknown | any) {
     throw new Error(error.message)
   }
 }

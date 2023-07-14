@@ -1,8 +1,6 @@
 'use client'
 import { Dispatch, ReactNode, SetStateAction, createContext, useState } from "react";
 
-export const BrandContext = createContext('')
-
 interface ProvidersProps {
   children: ReactNode;
 }
@@ -12,10 +10,17 @@ interface INameValues {
   setCurrentName: Dispatch<SetStateAction<string>>
 }
 
+interface IBrandValues {
+  currentBrand: string;
+  setCurrentBrand: Dispatch<SetStateAction<string>>
+}
+
+export const BrandContext = createContext('')
+
 export const BrandContextProvider: React.FC<ProvidersProps> = ({ children }) => {
   const [currentBrand, setCurrentBrand] = useState('')
 
-  const values = {
+  const values: IBrandValues = {
     currentBrand,
     setCurrentBrand
   }

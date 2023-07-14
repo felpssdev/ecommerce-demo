@@ -15,7 +15,7 @@ const Register = () => {
 
     const email = (e.target as any)[0].value
     const name = (e.target as any)[1].value
-    const password = (e.target as any)[1].value
+    const password = (e.target as any)[2].value
 
     try {
       const res = await fetch('/api/auth/register', {
@@ -32,6 +32,7 @@ const Register = () => {
 
       res.status === 201 && router.push('/profile/login?success=Account has been created!')
       res.status === 500 && setErr(true)
+      console.log(res)
     } catch (error) {
       setErr(true)
     }

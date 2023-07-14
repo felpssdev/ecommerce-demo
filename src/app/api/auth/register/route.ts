@@ -1,10 +1,10 @@
 import conn from "@/models/User"
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 import bcryptjs from 'bcryptjs'
 import mongoose from "mongoose"
 
-export const POST = async (req: string) => {
-  const response = await JSON.parse(req)
+export const POST = async (req: Request | NextRequest) => {
+  const response = await req.json()
   const { name, email, password } = response
 
   const hashedPassword = await bcryptjs.hash(password, 5)

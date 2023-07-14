@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowLeft, MoreVertical } from 'lucide-react'
+import { ArrowLeft, ArrowRightCircle, CreditCard, MoreVertical } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -15,6 +15,10 @@ const Profile = () => {
 
   console.log(data)
 
+  const handleSignout = async () => {
+    await signOut()
+  }
+
   if (status === 'loading') return <p>Hang on there...</p>
 
   if (status === 'unauthenticated') {
@@ -23,7 +27,7 @@ const Profile = () => {
 
   return (
     <div className='flex flex-col items-center px-4 py-4 pb-32 lg:mx-auto lg:w-[550px] xl:mx-auto xl:w-[550px] 2xl:mx-auto 2xl:w-[550px]'>
-      <div className='bg-gray-200 h-96 rounded-3xl w-full flex items-center flex-col'>
+      <div className='bg-gray-200 h-[350px] rounded-3xl w-full flex items-center flex-col'>
         <div className='flex w-full justify-between p-4 items-center'>
           <Link href="/">
             <ArrowLeft />
@@ -35,7 +39,53 @@ const Profile = () => {
         <h1 className='font-bold text-3xl mt-4'>{data?.user?.name}</h1>
         <p className='font-semibold'>{data?.user?.email}</p>
       </div>
-      <button className='bg-green-500 p-4 font-bold text-white rounded-full' onClick={signOut}>Logout</button>
+      <div className='flex justify-between items-center w-full font-bold mt-4 px-2'>
+        <h2>Credit cards</h2>
+        <span onClick={() => router.push(`/${data?.user?._id}/new-card`)} className='text-green-500 cursor-pointer'>New card</span>
+      </div>
+      <div className='w-full h-64 mt-2 overflow-y-scroll scrollbar-hide'>
+        <div className='flex gap-4 w-full py-4 border-b-2 items-center'>
+          <CreditCard />
+          <div className='font-semibold text-zinc-700 w-full flex justify-between items-center px-2'>
+            <div>
+              <p>Card 1</p>
+              <span className='text-zinc-400'>.... 7889</span>
+            </div>
+            <ArrowRightCircle />
+          </div>
+        </div>
+        <div className='flex gap-4 w-full py-4 border-b-2 items-center'>
+          <CreditCard />
+          <div className='font-semibold text-zinc-700 w-full flex justify-between items-center px-2'>
+            <div>
+              <p>Card 2</p>
+              <span className='text-zinc-400'>.... 5689</span>
+            </div>
+            <ArrowRightCircle />
+          </div>
+        </div>
+        <div className='flex gap-4 w-full py-4 border-b-2 items-center'>
+          <CreditCard />
+          <div className='font-semibold text-zinc-700 w-full flex justify-between items-center px-2'>
+            <div>
+              <p>Card 3</p>
+              <span className='text-zinc-400'>.... 5609</span>
+            </div>
+            <ArrowRightCircle />
+          </div>
+        </div>
+        <div className='flex gap-4 w-full py-4 border-b-2 items-center'>
+          <CreditCard />
+          <div className='font-semibold text-zinc-700 w-full flex justify-between items-center px-2'>
+            <div>
+              <p>Card 4</p>
+              <span className='text-zinc-400'>.... 1089</span>
+            </div>
+            <ArrowRightCircle />
+          </div>
+        </div>
+      </div>
+      <button className='bg-green-500 p-4 font-bold text-white rounded-full' onClick={handleSignout}>Logout</button>
       <Navbar show={true} />
     </div>
   )

@@ -1,10 +1,10 @@
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 import conn from "@/models/User"
 import mongoose from "mongoose"
 
-export const GET = async (_req: string) => {
+export const GET = async (_req: Request | NextRequest) => {
   try {
-    mongoose.createConnection(process.env.MONGO)
+    mongoose.createConnection(process.env.MONGO as string)
 
     mongoose.connection.on('error', err => {
       console.error(err)
@@ -14,7 +14,7 @@ export const GET = async (_req: string) => {
 
     return new NextResponse(JSON.stringify(users), { status: 200 })
 
-  } catch (error) {
+  } catch (error: unknown | any) {
     return new NextResponse(error.message, { status: 500 })
   }
 }
