@@ -22,11 +22,6 @@ const userSchema = new Schema<IUser>({
   password: {
     type: String,
     required: true
-  },
-  id: {
-    type: String,
-    required: true,
-    unique: true
   }
 }, { timestamps: true })
 

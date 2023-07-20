@@ -2,6 +2,7 @@ import conn from "@/models/User"
 import { NextRequest, NextResponse } from "next/server"
 import bcryptjs from 'bcryptjs'
 import mongoose from "mongoose"
+import connect from "@/utils/db"
 
 export const POST = async (req: Request | NextRequest) => {
   const response = await req.json()
@@ -16,11 +17,15 @@ export const POST = async (req: Request | NextRequest) => {
   })
 
   try {
-    mongoose.createConnection(process.env.MONGO as string)
+    // mongoose.createConnection(process.env.MONGO as string)
 
-    mongoose.connection.on('error', err => {
-      console.error(err)
-    })
+    // console.log(mongoose.connection)
+
+    // mongoose.connection.on('error', err => {
+    //   console.error(err)
+    // })
+
+    await connect()
 
     await newUser.save()
 
@@ -28,6 +33,7 @@ export const POST = async (req: Request | NextRequest) => {
       status: 201
     })
   } catch (error) {
+    console.log(error)
     return new NextResponse("Something went wrong when creating User!", {
       status: 500
     })
