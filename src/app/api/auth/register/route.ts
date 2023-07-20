@@ -3,17 +3,24 @@ import { NextRequest, NextResponse } from "next/server"
 import bcryptjs from 'bcryptjs'
 import mongoose from "mongoose"
 import connect from "@/utils/db"
+import crypto from 'crypto'
 
 export const POST = async (req: Request | NextRequest) => {
   const response = await req.json()
   const { name, email, password } = response
 
-  const hashedPassword = await bcryptjs.hash(password, 5)
+  const salt = crypto.randomBytes(16).toString('hex')
+
+  const hashedPassword = crypto
+    .createHash('sha256')
+    .update(password + salt)
+    .digest('base64')
 
   const newUser = new conn.models.User({
     name,
     email,
-    password: hashedPassword
+    password: hashedPassword,
+    id: crypto.randomBytes(16).toString('hex')
   })
 
   try {
